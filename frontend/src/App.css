@@ -1,0 +1,29 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+/* Default dark mode */
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.important {
+  color: gold;
+}
+
+.general-text {
+  color: white;
+}
+
+/* Light mode */
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.light-mode .general-text {
+  color: black;
+}

@@ -1,0 +1,61 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+model Token{
+  id                   Int       @id @default(autoincrement())
+  name                 String    @unique
+  symbol               String    @unique      
+  contractAddress      String?    @unique
+  circulatingSupply    Float?  
+  totalSupply          String?     @default("uncapped")
+  tokenLiveData        TokenLiveData?
+  network              String?
+  socials              Socials?
+  audits               Audit[]
+  tags                 TokenTag[]
+}
+model TokenLiveData {
+  id                     Int           @id @default(autoincrement())
+  price                  Float  
+  hourlyChange           Float?
+  dailyChange            Float?
+  volume                 Float?
+  priceChange            Float?
+  weeklyChange           Float?
+  marketCap              Float         @default(0.0)
+  tokenId                Int           @unique
+  token                  Token         @relation(fields: [tokenId],references: [id])
+}
+
+model Socials{
+  id                    Int           @id @default(autoincrement())
+  twitter               String?
+  discord               String?
+  telegram              String?
+  tokenId               Int           @unique
+  token                 Token         @relation(fields: [tokenId],references: [id])
+
+}
+
+model Audit{
+  id                 Int            @id@default(autoincrement())
+  report             String
+  tokenId            Int?
+  token              Token?         @relation(fields:[tokenId],references:[id])
+}
+
+model TokenTag{
+  id                 Int            @id @default(autoincrement())
+  tag                String
+  tokenId            Int?
+  token              Token?        @relation(fields: [tokenId],references: [id])
+
+
+}
