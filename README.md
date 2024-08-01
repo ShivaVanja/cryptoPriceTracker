@@ -11,7 +11,7 @@ WebSocket communication for real-time updates.
 Technologies Used
 Frontend: React, TypeScript, Tailwind CSS
 Backend: Node.js, Prisma, WebSockets
-Database: Prisma (e.g., SQLite, PostgreSQL)
+Database: Prisma (PostgreSQL)
 API: Binance API for fetching cryptocurrency data
 
 FRONTEND SETUP :
