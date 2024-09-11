@@ -1,4 +1,4 @@
-Cryptocurrency Price Tracker
+
 A cryptocurrency price tracker that fetches real-time data from Binance and serves it to the frontend via WebSockets. The project is built with React, TypeScript, Tailwind CSS, Prisma, and WebSockets.
 
 Features
