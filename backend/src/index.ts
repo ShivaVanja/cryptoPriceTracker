@@ -18,6 +18,7 @@ app.use(express.json());
 app.use("/token",router)
 
 const server = app.listen(3000,()=>{
+    console.log(process.env.Data)
     console.log(`listening on port ${port}`);
 })
 

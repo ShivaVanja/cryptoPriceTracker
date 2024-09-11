@@ -1,5 +1,4 @@
 
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -12,9 +11,9 @@ model Token{
   id                   Int       @id @default(autoincrement())
   name                 String    @unique
   symbol               String    @unique      
-  contractAddress      String?    @unique
+  contractAddress      String    @default("N/A")
   circulatingSupply    Float?  
-  totalSupply          String?     @default("uncapped")
+  totalSupply          BigInt     @default(-1)
   tokenLiveData        TokenLiveData?
   network              String?
   socials              Socials?

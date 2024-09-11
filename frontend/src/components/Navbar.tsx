@@ -1,37 +1,25 @@
 import React from 'react';
-import logo from "./../assets/priceTracker.png"
-import { MdDarkMode } from "react-icons/md";
-import { MdOutlineLightMode } from "react-icons/md";
+import { Menu, Moon, Sun } from 'lucide-react'
+
 
 interface NavbarProps {
-    setLightMode: React.Dispatch<React.SetStateAction<boolean>>;
-    lightMode: boolean;
+    setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+    darkMode: boolean;
 }
-const Navbar: React.FC<NavbarProps> = ({ setLightMode, lightMode }) => {
+const Navbar: React.FC<NavbarProps> = ({ setDarkMode, darkMode }) => {
     return (
-        <div className='flex text-xl  text-yellow-600 realtive'>
-            <img src={logo} className='w-40 h-7'></img>
+        <div className='bg-gray-800 dark:bg-gray-950 p-4 flex text-xl  text-yellow-600 realtive'>
+            <div className="flex items-center space-x-4">
+                <button className="md:hidden">
+                    <Menu className="h-6 w-6" />
+                </button>
+            <p className="text-xl font-bold">CryptoTracker</p>
+            </div>
             <div className='flex ml-auto mr-10 space-x-5'>
-                {lightMode ?
-                    <div className='absolute top-1' onClick={() => setLightMode(!lightMode)}><MdDarkMode />
+                {darkMode ?
+                    <div className='absolute top-4' onClick={() => setDarkMode(!darkMode)}> <Sun className="h-5 w-5" />
                     </div> :
-                    <div className='absolute top-1' onClick={() => setLightMode(!lightMode)}><MdOutlineLightMode /></div>}
-                <div className="group relative ml-1 ">
-                    <p className='ml-3'>
-                        Exchanges
-                    </p>
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2  w-20 h-5 bg-gray-100 rounded shadow-lg text-xs text-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ">
-                        Coming soon..
-                    </div>
-                </div>
-                <div className="group relative ml-1 ">
-                    <p >
-                        Watchlist
-                    </p>
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2  w-20 h-5 bg-gray-100 rounded shadow-lg text-xs text-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ">
-                        Coming soon..
-                    </div>
-                </div>
+                    <div className='absolute top-4' onClick={() => setDarkMode(!darkMode)}><Moon className="h-5 w-5" /></div>}
             </div>
         </div>
     );

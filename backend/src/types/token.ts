@@ -4,7 +4,7 @@ export interface tokenData{
     symbol:string,
     contractAddress?:string,
     circulatingSupply?:number,
-    totalSupply?: string;
+    totalSupply: bigint;
 }
 export type CryptoData = Partial<tokenData>&{
    

@@ -7,7 +7,7 @@ export const validateMultiToken = [
   body("tokens.*.name").isString().withMessage("Invalid name"),
   body("tokens.*.symbol").isString().withMessage("Invalid symbol"),
   body("tokens.*.circulatingSupply").optional().isNumeric().withMessage("Invalid circulating supply"),
-  body("tokens.*.totalSupply").optional().isString().withMessage("Invalid total supply, please send it as string"),
+  body("tokens.*.totalSupply").optional().isNumeric().withMessage("Invalid total supply, please send it as number"),
   (req: Request, res: Response, next: NextFunction) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

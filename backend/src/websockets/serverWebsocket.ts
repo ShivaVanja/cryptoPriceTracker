@@ -2,7 +2,7 @@ import { WebSocket, WebSocketServer } from "ws";
 
 import { getCryptoData } from "./binancewebsocket";
 import { Server } from "http";
-import { stitchData } from "../fetchers/stitchData";
+import { stitchData } from "../services/stitchData";
 
 
 export const startWebSocketServer = (server:Server)=>{

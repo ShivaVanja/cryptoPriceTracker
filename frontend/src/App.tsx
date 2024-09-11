@@ -4,12 +4,12 @@ import Navbar from './components/Navbar'
 import { useState } from 'react';
 
 function App() {
-  const [lightMode, setLightMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   return (
-    <div className={lightMode ? 'light-mode' : 'dark-mode'}>
+    <div className={ darkMode ? 'dark' : '' }>
        
-    <Navbar setLightMode={setLightMode} lightMode={lightMode}/>
+    <Navbar setDarkMode={setDarkMode} darkMode={darkMode}/>
     <Home/>
        
     </div>

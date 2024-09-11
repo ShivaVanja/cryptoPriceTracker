@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
+import { numTruncator } from "../utils/numTruncator";
 type pricedata = {
-    // id:string,
     name:string,
     symbol:string
     price:number, 
-    totalSupply:number|string,
+    totalSupply:string,
     circulatingSupply:number
-    // hourChange:string,
-    // dailyChange:string,
+    
 }
 type Parsed ={
     cryptoPrices:pricedata[],
@@ -16,7 +15,7 @@ const PricesCard = () => {
    
     const [prices, setPrices] = useState<pricedata[]>([]);
     useEffect(()=>{
-        const ws = new WebSocket("ws://localhost:3000");
+     const ws = new WebSocket("ws://localhost:3000");//ws://3.111.157.2:8080
         ws.onopen = () => {
             console.log("initialised ws on browser");
         }
@@ -34,22 +33,22 @@ const PricesCard = () => {
       };
 
     },[])
-
+   
 
     return (
         <>
             {prices.map((token)=>
-            (<tr className="text-sm border-y border-gray-400 h-20 general-text">
-                <td className="font-bold">{token.name}</td>
+            (
+            <tr className="dark:text-white text-black border-y border-gray-400 h-16 general-text text-lg ">
+                <td className="font-bold ">{token.name}</td>
                 <td className="font-semibold">{token.symbol}</td>
-                <td>${token.price.toLocaleString()}</td>
-                <td>{token.circulatingSupply.toLocaleString()}</td>
-                <td>${Math.trunc(token.price*token.circulatingSupply).toLocaleString()}</td>
-                <td>{token.totalSupply=="uncapped"?'∞':(token.totalSupply).toLocaleString()}</td>
-                {/* <td>{token.hourChange}</td>
-                <td>{token.dailyChange}</td>
-                <td>{token.price * token.totalSupply}</td> */}
-            </tr>))}
+                <td>${numTruncator(token.price)}</td>
+                <td>{numTruncator(token.circulatingSupply)}</td>
+                <td>${numTruncator(token.price*token.circulatingSupply)}</td>
+                <td>{token.totalSupply}</td>
+                </tr>
+            )
+            )}
         
             </>
 

@@ -1,5 +1,5 @@
 import { WebSocket } from "ws";
-import symbolsFetcher from "../fetchers/symbolsFetcher";
+import symbolsFetcher from "../services/symbolsFetcher";
 import { CryptoData } from "../types";
 
 const priceWsUrl = process.env.PRICE_WS_URL

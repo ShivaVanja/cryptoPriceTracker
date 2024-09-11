@@ -11,7 +11,7 @@
 
   color: rgba(255, 255, 255, 0.87);
   /* background: linear-gradient(180deg, rgba(5, 25, 38, 1) 0% ,  rgba(70, 191, 242, 1) 100%); */
-  background-color: black;
+  
   
 
   font-synthesis: none;
@@ -34,19 +34,5 @@ body {
 
 .important {
   color: gold;
-}
-
-.general-text {
-  color: white;
-}
-
-/* Light mode */
-.light-mode {
-  background-color: white;
-  color: black;
-}
-
-.light-mode .general-text {
-  color: black;
 }
 
